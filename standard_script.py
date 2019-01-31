@@ -1,7 +1,3 @@
-"""This is a standard script to run over your data to get a good first impression.
-It sumarizes the data and generates some usefull plots. It also runs 6 classification
-models and picks the best for prediction."""
-
 
 # Load libraries
 import pandas
