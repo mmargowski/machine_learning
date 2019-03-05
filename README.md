@@ -1,3 +1,5 @@
-# machine_learning
+# Machine Learning
 
-Different tools for machine learning
+Different examples of machine learning techniques
+
+Run tools/startup.py to download libraries and set up the dataset
