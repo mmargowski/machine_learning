@@ -17,7 +17,8 @@ from sklearn.metrics import accuracy_score
 ### labels_train and labels_test are the corresponding item labels
 features_train, features_test, labels_train, labels_test = preprocess()
 
-clf = svm.SVC(kernel="linear")
+clf = svm.SVC(kernel="rbf", C=10000.0)
+
 t0 = time()
 clf.fit(features_train, labels_train)
 print("training time:", round(time()-t0, 3), "s")
