@@ -6,6 +6,7 @@ import sys
 sys.path.append("../tools/")
 from feature_format import featureFormat, targetFeatureSplit
 from sklearn.cluster import KMeans
+from sklearn.preprocessing import MinMaxScaler
 
 
 
@@ -34,19 +35,22 @@ data_dict = pickle.load( open("../final_project/final_project_dataset.pkl", "br"
 data_dict.pop("TOTAL", 0)
 
 
-
 feature_1 = "salary"
 feature_2 = "exercised_stock_options"
 feature_3 = "total_payments"
 poi  = "poi"
-features_list = [poi, feature_1, feature_2, feature_3]
+features_list = [poi, feature_1, feature_2]
 data = featureFormat(data_dict, features_list )
 poi, finance_features = targetFeatureSplit( data )
 
 
-for f1, f2, f3 in finance_features:
-    plt.scatter( f1, f2, f3 )
+for f1, f2 in finance_features:
+    plt.scatter( f1, f2 )
 plt.show()
+
+
+scaler = MinMaxScaler()
+scaler.fit_transform(finance_features)
 
 clf = KMeans(n_clusters=2)
 clf.fit(finance_features)
